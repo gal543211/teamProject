@@ -42,7 +42,16 @@ def mines_field_ui(field, bush_png):
     for row in range(len(field)):
         for col in range(len(field[row])):
             if field[row][col] == consts.MINES_TILE:
-                screen.blit(img, (row*consts.CELL_SIZE, (col+1) *consts.CELL_SIZE))
+                screen.blit(img, (col*consts.CELL_SIZE, (row+1) *consts.CELL_SIZE))
                 pygame.display.update()
+
+
+def return_mines_location(field):
+    list_of_mines = []
+    for row in range(len(field)):
+        for col in range(len(field[row])):
+            if field[row][col] == consts.MINES_TILE:
+                list_of_mines.append((row, col + 1))
+    return list_of_mines
 
 # מתודה לציור החייל
