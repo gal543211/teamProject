@@ -22,8 +22,6 @@ def main():
 
         if code == consts.EXIT:
             running = False
-        screen.print_screen(field)
-
 
 
 def handle_events():

@@ -30,12 +30,11 @@ def create_bush(bush_img):
 
 # מתודה לציור רשת המטריצה
 def create_lines_net(field):
-    for row in range(consts.BOARD_COLS):
-        pygame.draw.line(screen, 'red', field[row][0], field[0][consts.BOARD_ROWS])
-        row=row+1
-        pygame.display.update()
+    for x in range(0, consts.WINDOW_WIDTH, consts.CELL_SIZE):
+        for y in range(0, consts.WINDOW_HEIGHT, consts.CELL_SIZE):
+            rect = pygame.Rect(x, y, consts.CELL_SIZE, consts.CELL_SIZE)
+            pygame.draw.rect(screen, 'red', rect, 1)
+    pygame.display.update()
 
 
 # מתודה לציור החייל
-
-# TODO: להוסיף תמונה למוקשים

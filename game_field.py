@@ -67,7 +67,6 @@ def insert_landmines(empty_field):
 
     return empty_field
 
-
 #Function to check if it is possible to insert the mine
 #cannot insert mines for 4 options:
 #1. mines are on the soldier respawn point
