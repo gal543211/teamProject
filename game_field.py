@@ -90,6 +90,14 @@ def get_soldier_tile(field):
     return None
 
 
+def return_mines_location(field):
+    list_of_mines = []
+    for row in range(len(field)):
+        for col in range(len(field[row])):
+            if field[row][col] == consts.MINES_TILE:
+                list_of_mines.append((row, col + 1))
+    return list_of_mines
+
 
 #function to print the field
 #not needed for the game, more for debug

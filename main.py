@@ -18,7 +18,7 @@ def main():
         if code:
             soldier.move_soldier(code)
 
-        #creen.print_screen(field)
+        #screen.print_screen(field)
 
 
 
