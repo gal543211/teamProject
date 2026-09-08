@@ -37,11 +37,12 @@ def create_lines_net(field):
     pygame.display.update()
 
 # מתודה לציור המוקשים
-def mines_field_ui(field):
-    img=pygame.transform.scale(mine_img, (consts.BUSH_WIDTH, consts.BUSH_HEIGHT))
+def mines_field_ui(field, bush_png):
+    img=pygame.transform.scale(bush_png, (consts.BUSH_WIDTH, consts.BUSH_HEIGHT))
     for row in range(len(field)):
         for col in range(len(field[row])):
             if field[row][col] == consts.MINES_TILE:
-                screen.blit(img, (row, col))
+                screen.blit(img, (row*consts.CELL_SIZE, (col+1) *consts.CELL_SIZE))
+                pygame.display.update()
 
 # מתודה לציור החייל
