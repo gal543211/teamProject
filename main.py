@@ -1,12 +1,12 @@
 import pygame
 import consts
 import screen
-
+import game_field
 
 def main():
     pygame.init()
     running = True
-
+    field = game_field.create_field()
 
     while running:
         code = handle_events()
@@ -14,6 +14,7 @@ def main():
         if code == consts.EXIT:
             running = False
 
+        screen.print_screen(field)
 
 
 def handle_events():
