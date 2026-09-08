@@ -20,3 +20,4 @@ def create_bush(bush_img):
         pygame.display.update()
 
 # מתודה לציור רשת המטריצה והמוקשים
+
