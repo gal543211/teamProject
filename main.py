@@ -6,7 +6,7 @@ import time
 def main():
     pygame.init()
     running = True
-
+    field = game_field.create_field()
     # screen.screen_green_color()
     # bush_img = pygame.image.load("bush.png")
     # screen.create_bush(bush_img)
@@ -22,6 +22,7 @@ def main():
 
         if code == consts.EXIT:
             running = False
+        screen.print_screen(field)
 
 
 
