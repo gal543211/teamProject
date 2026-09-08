@@ -1,7 +1,7 @@
 import pygame
 import consts
 import screen
-import time
+import game_field
 
 def main():
     pygame.init()
@@ -15,7 +15,7 @@ def main():
 
     # בדיקה של מצב2
     screen.screen_dark_color()
-    screen.create_lines_net()
+    screen.create_lines_net(field)
 
     while running:
         code = handle_events()

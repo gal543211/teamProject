@@ -29,9 +29,9 @@ def create_bush(bush_img):
         pygame.display.update()
 
 # מתודה לציור רשת המטריצה
-def create_lines_net():
-    for row in range(consts.BOARD_ROWS):
-        pygame.draw.line(screen, 'red', field[row][0], field[0][consts.BOARD_COLS])
+def create_lines_net(field):
+    for row in range(consts.BOARD_COLS):
+        pygame.draw.line(screen, 'red', field[row][0], field[0][consts.BOARD_ROWS])
         row=row+1
         pygame.display.update()
 
