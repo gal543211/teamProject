@@ -7,17 +7,15 @@ def main():
     pygame.init()
     running = True
     field = game_field.create_field()
-    # screen.screen_green_color()
-    # bush_img = pygame.image.load("bush.png")
-    # screen.create_bush(bush_img)
-    # bush_img = pygame.image.load("bush.png")
-    # screen.create_bush(bush_img)
+    screen.screen_green_color()
+    bush_img = pygame.image.load("bush.png")
+    screen.create_bush(bush_img)
 
     # בדיקה של מצב2
     screen.screen_dark_color()
     screen.create_lines_net(field)
-    bush_img = pygame.image.load("bush.png")
-    screen.mines_field_ui(field, bush_img)
+    mine_img = pygame.image.load("mine.png")
+    screen.mines_field_ui(field, mine_img)
 
     while running:
         code = handle_events()
