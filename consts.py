@@ -30,7 +30,8 @@ SOLDIER_COLS = 2
 SOLDIER_BODY_ROWS = 3   # the upper part
 SOLDIER_FEET_ROWS = 1   # the lower part
 
-
+BUSH_WIDTH= CELL_SIZE*3
+BUSH_HEIGHT= CELL_SIZE*3
 
 
 #codes
