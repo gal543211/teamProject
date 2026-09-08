@@ -4,9 +4,6 @@ import consts
 field = game_field.create_field()
 game_field.print_field(field)
 
-
-
-
 #Function to move the player in the matrix
 #The functions gets a code, the code is one of these:
 #TOP_KEY = 1, BOTTOM_KEY = 2, LEFT_KEY = 3, RIGHT_KEY = 4
@@ -35,6 +32,7 @@ def move_soldier(code):
             field[soldier_row][soldier_col] = consts.EMPTY_TILE
             field[soldier_row][soldier_col + 1] = consts.SOLDIER_TILE
 
+    # if the user pressed the top key
     elif code == consts.TOP_KEY:
         if soldier_row <= 0:  # checking the limits
             return False
@@ -45,6 +43,7 @@ def move_soldier(code):
             field[soldier_row][soldier_col] = consts.EMPTY_TILE
             field[soldier_row - 1][soldier_col] = consts.SOLDIER_TILE
 
+    # if the user pressed the bottom key
     elif code == consts.BOTTOM_KEY:
         if soldier_row >= len(field):  # checking the limits
             return False
@@ -60,8 +59,7 @@ def move_soldier(code):
     return True
 
 
-
-
+#function that checks is the soldier is touching the flag
 def is_soldier_touching_flag():
     soldier_row, soldier_col = game_field.get_soldier_tile(field)
     for row in range(soldier_row, soldier_row + consts.SOLDIER_ROWS):
@@ -70,6 +68,7 @@ def is_soldier_touching_flag():
                 return True
     return False
 
+#function the checks if the soldier is touching a mine
 def is_soldier_touching_mine():
     soldier_row, soldier_col = game_field.get_soldier_tile(field)
     for row in range(soldier_row, soldier_row + consts.SOLDIER_ROWS):
