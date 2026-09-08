@@ -90,6 +90,7 @@ def get_soldier_tile(field):
     return None
 
 
+#Function that returns a list of tuple, each tuple has the main location of the mine
 def return_mines_location(field):
     list_of_mines = []
     for row in range(len(field)):

@@ -4,6 +4,7 @@ import consts
 field = game_field.create_field()
 game_field.print_field(field)
 print(game_field.return_mines_location(field))
+
 #Function to move the player in the matrix
 #The functions gets a code, the code is one of these:
 #TOP_KEY = 1, BOTTOM_KEY = 2, LEFT_KEY = 3, RIGHT_KEY = 4
