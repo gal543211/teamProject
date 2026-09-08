@@ -2,6 +2,7 @@ import pygame
 import consts
 import screen
 
+
 def main():
     pygame.init()
     running = True
@@ -12,7 +13,6 @@ def main():
 
         if code == consts.EXIT:
             running = False
-
 
 
 

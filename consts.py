@@ -10,7 +10,7 @@ WINDOW_WIDTH = BOARD_COLS * CELL_SIZE
 WINDOW_HEIGHT = BOARD_ROWS * CELL_SIZE
 
 
-EMPTY_TILE = "E"
+EMPTY_TILE = " "
 
 #flag location in the field
 FLAG_TILE = "F"
@@ -31,7 +31,9 @@ SOLDIER_BODY_ROWS = 3   # the upper part
 SOLDIER_FEET_ROWS = 1   # the lower part
 
 
-
+#bush settings
+BUSH_WIDTH = CELL_SIZE * 3
+BUSH_HEIGHT = CELL_SIZE * 3
 
 #codes
 EXIT = -1
