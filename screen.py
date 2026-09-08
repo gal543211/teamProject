@@ -36,5 +36,12 @@ def create_lines_net(field):
             pygame.draw.rect(screen, 'red', rect, 1)
     pygame.display.update()
 
+# מתודה לציור המוקשים
+def mines_field_ui(field):
+    img=pygame.transform.scale(mine_img, (consts.BUSH_WIDTH, consts.BUSH_HEIGHT))
+    for row in range(len(field)):
+        for col in range(len(field[row])):
+            if field[row][col] == consts.MINES_TILE:
+                screen.blit(img, (row, col))
 
 # מתודה לציור החייל

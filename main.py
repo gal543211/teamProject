@@ -16,6 +16,7 @@ def main():
     # בדיקה של מצב2
     screen.screen_dark_color()
     screen.create_lines_net(field)
+    screen.mines_field_ui(field)
 
     while running:
         code = handle_events()

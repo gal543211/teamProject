@@ -93,4 +93,3 @@ def print_field(field):
         for column in range(len(field[row])):
             print(field[row][column], end=" ")
         print()
-
