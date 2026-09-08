@@ -46,12 +46,13 @@ def mines_field_ui(field, bush_png):
                 pygame.display.update()
 
 
-def return_mines_location(field):
-    list_of_mines = []
-    for row in range(len(field)):
-        for col in range(len(field[row])):
-            if field[row][col] == consts.MINES_TILE:
-                list_of_mines.append((row, col + 1))
-    return list_of_mines
+# def return_mines_location(field):
+#     list_of_mines = []
+#     for row in range(len(field)):
+#         for col in range(len(field[row])):
+#             if field[row][col] == consts.MINES_TILE:
+#                 list_of_mines.append((row, col + 1))
+#     for mine in list_of_mines:
 
+# TODO: ציור של מוקש, לתקן את mines_field_ui
 # מתודה לציור החייל
