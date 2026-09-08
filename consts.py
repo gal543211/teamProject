@@ -35,5 +35,11 @@ SOLDIER_FEET_ROWS = 1   # the lower part
 BUSH_WIDTH = CELL_SIZE * 3
 BUSH_HEIGHT = CELL_SIZE * 3
 
+
+
 #codes
 EXIT = -1
+TOP_KEY = 1
+BOTTOM_KEY = 2
+LEFT_KEY = 3
+RIGHT_KEY = 4

@@ -82,6 +82,14 @@ def can_put_mines(field, row, column):
     return True
 
 
+def get_soldier_tile(field):
+    for row in range(len(field)):
+        for col in range(len(field[row])):
+            if field[row][col] == consts.SOLDIER_TILE:
+                return (row, col)
+    return None
+
+
 
 #function to print the field
 #not needed for the game, more for debug
