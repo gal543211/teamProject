@@ -41,8 +41,6 @@ def main():
 
         #screen.print_screen(field)
 
-
-
 def handle_events():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
