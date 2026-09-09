@@ -127,6 +127,7 @@ def print_field(field):
 
 
 
+
 #IGNORE
 #Function to insert the soldier to the top left location in the field
 # def insert_soldier(empty_field):
