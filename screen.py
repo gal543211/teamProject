@@ -35,7 +35,7 @@ def create_lines_net(field):
 
 # מתודה לציור המוקשים
 def mines_field_ui(field, mine_png):
-    mine=pygame.transform.scale(mine_png, (consts.CELL_SIZE * 3, consts.CELL_SIZE * 3))
+    mine=pygame.transform.scale(mine_png, (consts.CELL_SIZE * consts.SOLDIER_BODY_ROWS, consts.CELL_SIZE * consts.SOLDIER_BODY_ROWS))
     for row in range(len(field)-1):
         for col in range(len(field[row])-1):
             if field[row][col+1] == consts.MINES_TILE:
@@ -46,7 +46,7 @@ def mines_field_ui(field, mine_png):
 
 # מתודה לציור החייל בתחילת הלוח
 def create_player(soldier_png, row, col):
-    solider=pygame.transform.scale(soldier_png, (consts.CELL_SIZE * 2, consts.CELL_SIZE * 4))
+    solider=pygame.transform.scale(soldier_png, (consts.CELL_SIZE * consts.SOLDIER_COLS, consts.CELL_SIZE * consts.SOLDIER_ROWS))
     screen.blit(solider, (row, col))
     pygame.display.update()
 
