@@ -10,11 +10,6 @@ def main():
     field = game_field.create_field()
     screen.screen_green_color()
     bushes_lst = screen.create_bush()
-    # בדיקה של מצב2
-    # screen.screen_dark_color()
-    # screen.create_lines_net(field)
-    # mine_img = pygame.image.load("mine.png")
-    # screen.mines_field_ui(field, mine_img)
 
     # יצירת שחקן בתחילת הלוח:
     day_solider_img = pygame.image.load("soldier.png")
@@ -24,8 +19,6 @@ def main():
         code = 0
         code = handle_events()
 
-
-        # הדפסת מצב יום
         screen.draw_day(bushes_lst, field, code)
 
         if code == consts.EXIT:
@@ -58,6 +51,8 @@ def handle_events():
                 return consts.TOP_KEY
             if event.key == pygame.K_DOWN:
                 return consts.BOTTOM_KEY
+            if event.key == pygame.K_RETURN:
+                return consts.ENTER_KEY
 
     return 0
 

@@ -10,10 +10,6 @@ screen_surface = pygame.display.set_mode(
 def screen_green_color():
     screen_surface.fill(pygame.Color("darkolivegreen1"))
 
-# מתודה לציור רקע כהה
-def screen_dark_color():
-    screen_surface.fill(pygame.Color("grey9"))
-
 # מתודה לציור רנדומלי של שיחים + שמירת מיקומי השיחים
 def create_bush():
     bushes_lst = []
@@ -70,14 +66,17 @@ def move_soldier_ui(field, soldier_img):
     col=game_field.get_soldier_tile(field)[1]*consts.CELL_SIZE
     create_player(soldier_img, row, col)
 
-def draw_day(bushes_lst, field):
+def draw_day(bushes_lst, field, code):
     bush_img = pygame.image.load("bush.png")
-    day_solider_img = pygame.image.load("soldier.png")
-
-    # יצירת מסך
-    screen_surface.fill(pygame.Color("darkolivegreen1"))
-    # דרך2
-    # screen_green_color()
+    if code!=5:
+        solider_img = pygame.image.load("soldier.png")
+        screen_surface.fill(pygame.Color("darkolivegreen1"))
+    else:
+        solider_img = pygame.image.load("soldier_night.png")
+        screen_surface.fill(pygame.Color("grey9"))
+        create_lines_net(field)
+        mine_img = pygame.image.load("mine.png")
+        mines_field_ui(field, mine_img)
 
     # יצירת דגל בסוף הלוח
     flag_img = pygame.image.load("flag.png")
@@ -88,6 +87,6 @@ def draw_day(bushes_lst, field):
     for row in range(len(bushes_lst)):
         screen_surface.blit(size_image,(bushes_lst[row][0], bushes_lst[row][1]))
 
-    move_soldier_ui(field, day_solider_img)
+    move_soldier_ui(field, solider_img)
 
     pygame.display.update()
