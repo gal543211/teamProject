@@ -61,6 +61,7 @@ def top_place(field):
     return (top_row, top_col)
 
 
+
 # מתודה למציאת משבצת התחלה חלק תחתון- חייל
 def bottom_place(soldier_png, field):
     soldier_row_and_col = game_field.get_soldier_tile(field)
