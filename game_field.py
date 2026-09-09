@@ -60,7 +60,6 @@ def insert_landmines(empty_field):
             empty_field[row][column] = consts.MINES_TILE
             mine_count += 1
 
-    print(f"Amount of mines: {mine_count}")
     return empty_field
 
 
