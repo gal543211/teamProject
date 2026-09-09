@@ -77,7 +77,7 @@ def can_put_mines(field, row, column):
             return False
         #if the mine is already a mine or a flag
         if field[row][checking_col] == consts.MINES_TILE and field[row][checking_col] == consts.FLAG_TILE \
-                or (column > 0 and field[row][checking_col - 1] == consts.MINES_TILE):
+                and (column > 0 and field[row][checking_col - 1] == consts.MINES_TILE):
                 return False
     return True
 
