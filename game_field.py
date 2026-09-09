@@ -5,6 +5,9 @@ import consts
 #Function to create the main field
 #the main field contains empty tiles, mines, and the flag at the end
 #soldier location will be operated in soldier.py
+
+
+
 def create_field():
     #creating empty field
     empty_field = create_empty_field()
@@ -124,6 +127,7 @@ def print_field(field):
         for column in range(len(field[row])):
             print(field[row][column], end=" ")
         print()
+
 
 
 

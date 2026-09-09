@@ -1,14 +1,11 @@
 import game_field
 import consts
 
-field = game_field.create_field()
-list_of_mines = game_field.return_mines_location(field)
-
 
 #Function to move the player in the matrix
 #The functions gets a code, the code is one of these:
 #TOP_KEY = 1, BOTTOM_KEY = 2, LEFT_KEY = 3, RIGHT_KEY = 4
-def move_soldier(code):
+def move_soldier(code, field):
     soldier_row, soldier_col = game_field.get_soldier_tile(field)
 
     print(f"Got code {code}")
@@ -68,7 +65,7 @@ def move_soldier(code):
 
 
 #function that checks if the soldier is touching the flag
-def is_soldier_touching_flag():
+def is_soldier_touching_flag(field):
     soldier_row, soldier_col = game_field.get_soldier_tile(field)
     for row in range(soldier_row, soldier_row + consts.SOLDIER_ROWS):
         for col in range(soldier_col, soldier_col + consts.SOLDIER_COLS):
@@ -77,7 +74,7 @@ def is_soldier_touching_flag():
     return False
 
 #function the checks if the soldier is touching a mine
-def is_soldier_touching_mine():
+def is_soldier_touching_mine(field):
     soldier_row, soldier_col = game_field.get_soldier_tile(field)
     left_foot, right_foot = get_soldier_two_foots(soldier_row, soldier_col)
 
@@ -94,5 +91,3 @@ def is_soldier_touching_mine():
 def get_soldier_two_foots(soldier_row, soldier_col):
     return (soldier_row + 3, soldier_col), (soldier_row + 3 , soldier_col + 1)
 
-
-print(is_soldier_touching_mine())

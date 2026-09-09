@@ -37,7 +37,7 @@ def main():
             running = False
 
         if code:
-            soldier.move_soldier(code)
+            field = soldier.move_soldier(code, field)
 
         #screen.print_screen(field)
 
