@@ -1,9 +1,7 @@
 import pygame
 from pygame.surface import Surface
-
 import consts
 import random
-
 import game_field
 
 screen = pygame.display.set_mode(
@@ -55,12 +53,20 @@ def create_player(solider_png):
     screen.blit(solider, (0, 0))
     pygame.display.update()
 
-# מתודה למציאת משבצות חלק תחתון- חייל
-# def top_place(solider_png, field):
+# מתודה למציאת משבצת התחלה חלק עליון- חייל
+def top_place(field):
+    soldier_row_and_col=game_field.get_soldier_tile(field)
+    top_row= soldier_row_and_col[0]+2
+    top_col= soldier_row_and_col[1]
+    return (top_row, top_col)
 
 
-# מתודה למציאת משבצות חלק עליון- חייל
-# def bottom_place(solider_png, field):
+# מתודה למציאת משבצת התחלה חלק תחתון- חייל
+def bottom_place(soldier_png, field):
+    soldier_row_and_col = game_field.get_soldier_tile(field)
+    bottom_row = soldier_row_and_col[0]+3
+    bottom_col = soldier_row_and_col[1]
+    return (bottom_row, bottom_col)
 
 
 # מתודה לציור הדגל בסוף הלוח
@@ -69,5 +75,5 @@ def create_flag(flag_png):
     screen.blit(flag, (consts.FLAG_X_LOCATION*consts.CELL_SIZE, consts.FLAG_Y_LOCATION*consts.CELL_SIZE))
     pygame.display.update()
 
-# TODO: פונקציה לגודל החייל
+# פונקציה לגודל החייל
 
