@@ -48,9 +48,9 @@ def mines_field_ui(field, mine_png):
 
 
 # מתודה לציור החייל בתחילת הלוח
-def create_player(solider_png):
-    solider=pygame.transform.scale(solider_png, (consts.CELL_SIZE * 2, consts.CELL_SIZE * 4))
-    screen.blit(solider, (0, 0))
+def create_player(soldier_png, row, col):
+    solider=pygame.transform.scale(soldier_png, (consts.CELL_SIZE * 2, consts.CELL_SIZE * 4))
+    screen.blit(solider, (row, col))
     pygame.display.update()
 
 # מתודה למציאת משבצת התחלה חלק עליון- חייל
@@ -75,6 +75,12 @@ def create_flag(flag_png):
     flag = pygame.transform.scale(flag_png, (consts.CELL_SIZE * consts.FLAG_COLS,consts.CELL_SIZE * consts.FLAG_ROWS))
     screen.blit(flag, (consts.FLAG_X_LOCATION*consts.CELL_SIZE, consts.FLAG_Y_LOCATION*consts.CELL_SIZE))
     pygame.display.update()
+
+# להדפסת מיקום החייל
+def move_soldier_ui(field, soldier_img):
+    row=game_field.get_soldier_tile(field)[0]
+    col=game_field.get_soldier_tile(field)[1]
+    create_player(soldier_img, row, col)
 
 # פונקציה לגודל החייל
 
