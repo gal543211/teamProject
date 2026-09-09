@@ -1,5 +1,4 @@
 import pygame
-from pygame.surface import Surface
 import consts
 import random
 import game_field
@@ -11,7 +10,6 @@ screen = pygame.display.set_mode(
 def screen_green_color():
     screen.fill(pygame.Color("darkolivegreen1"))
     pygame.display.update()
-
 
 # מתודה לציור רקע כהה
 def screen_dark_color():
@@ -46,7 +44,6 @@ def mines_field_ui(field, mine_png):
                 screen.blit(mine, ((col+1) * consts.CELL_SIZE, row * consts.CELL_SIZE))
                 pygame.display.update()
 
-
 # מתודה לציור החייל בתחילת הלוח
 def create_player(soldier_png, row, col):
     solider=pygame.transform.scale(soldier_png, (consts.CELL_SIZE * 2, consts.CELL_SIZE * 4))
@@ -60,15 +57,12 @@ def top_place(field):
     top_col= soldier_row_and_col[1]
     return (top_row, top_col)
 
-
-
 # מתודה למציאת משבצת התחלה חלק תחתון- חייל
 def bottom_place(soldier_png, field):
     soldier_row_and_col = game_field.get_soldier_tile(field)
     bottom_row = soldier_row_and_col[0]+3
     bottom_col = soldier_row_and_col[1]
     return (bottom_row, bottom_col)
-
 
 # מתודה לציור הדגל בסוף הלוח
 def create_flag(flag_png):
@@ -81,6 +75,7 @@ def move_soldier_ui(field, soldier_img):
     row=game_field.get_soldier_tile(field)[0]
     col=game_field.get_soldier_tile(field)[1]
     create_player(soldier_img, row, col)
+    pygame.display.update()
 
 # פונקציה לגודל החייל
 
