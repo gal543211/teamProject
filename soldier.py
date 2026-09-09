@@ -26,7 +26,8 @@ def move_soldier(code):
 
     # if the user pressed the right key
     elif code == consts.RIGHT_KEY:
-        if soldier_col >= len(field[soldier_row]):  # checking the limits
+        print(len(field[soldier_row]))
+        if soldier_col >= len(field[soldier_row]) - 1:  # checking the limits
             return False
 
         print(f"going to {soldier_row}, {soldier_col + 1}")
@@ -51,7 +52,7 @@ def move_soldier(code):
 
     # if the user pressed the bottom key
     elif code == consts.BOTTOM_KEY:
-        if soldier_row >= len(field):  # checking the limits
+        if soldier_row >= len(field) - 1:  # checking the limits
             return False
 
         #if the tile we are moving the soldier into is a mine or a flag, we don't move him
