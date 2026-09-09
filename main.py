@@ -24,6 +24,7 @@ def main():
         code = 0
         code = handle_events()
 
+
         # הדפסת מצב יום
         screen.draw_day(bushes_lst, field)
 
