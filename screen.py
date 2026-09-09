@@ -47,5 +47,26 @@ def mines_field_ui(field, mine_png):
                 screen.blit(mine, ((col+1) * consts.CELL_SIZE, row * consts.CELL_SIZE))
                 pygame.display.update()
 
-# מתודה לציור החייל
-# TODO:20 מוקשים
+
+# מתודה לציור החייל בתחילת הלוח
+def create_player(solider_png):
+    solider=pygame.transform.scale(solider_png, (consts.CELL_SIZE * 2, consts.CELL_SIZE * 4))
+    screen.blit(solider, (0, 0))
+    pygame.display.update()
+
+# מתודה למציאת משבצות חלק תחתון- חייל
+# def top_place(solider_png, field):
+
+
+# מתודה למציאת משבצות חלק עליון- חייל
+# def bottom_place(solider_png, field):
+
+
+# מתודה לציור הדגל בסוף הלוח
+def create_flag(flag_png):
+    flag = pygame.transform.scale(flag_png, (consts.CELL_SIZE * consts.FLAG_COLS,consts.CELL_SIZE * consts.FLAG_ROWS))
+    screen.blit(flag, (consts.FLAG_X_LOCATION*consts.CELL_SIZE, consts.FLAG_Y_LOCATION*consts.CELL_SIZE))
+    pygame.display.update()
+
+# TODO: פונקציה לגודל החייל
+
