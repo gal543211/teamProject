@@ -71,22 +71,23 @@ def draw_day(bushes_lst, field, code):
     if code!=5:
         solider_img = pygame.image.load("soldier.png")
         screen_surface.fill(pygame.Color("darkolivegreen1"))
+        # להדפיס את השיחים
+        size_image = pygame.transform.scale(bush_img, (consts.BUSH_WIDTH,consts.BUSH_HEIGHT))
+        for row in range(len(bushes_lst)):
+            screen_surface.blit(size_image, (bushes_lst[row][0], bushes_lst[row][1]))
+        # יצירת דגל בסוף הלוח
+        flag_img = pygame.image.load("flag.png")
+        create_flag(flag_img)
+        move_soldier_ui(field, solider_img)
     else:
         solider_img = pygame.image.load("soldier_night.png")
         screen_surface.fill(pygame.Color("grey9"))
         create_lines_net(field)
         mine_img = pygame.image.load("mine.png")
         mines_field_ui(field, mine_img)
-
-    # יצירת דגל בסוף הלוח
-    flag_img = pygame.image.load("flag.png")
-    create_flag(flag_img)
-
-    # להדפיס את השיחים
-    size_image = pygame.transform.scale(bush_img, (consts.BUSH_WIDTH, consts.BUSH_HEIGHT))
-    for row in range(len(bushes_lst)):
-        screen_surface.blit(size_image,(bushes_lst[row][0], bushes_lst[row][1]))
-
-    move_soldier_ui(field, solider_img)
+        # יצירת דגל בסוף הלוח
+        flag_img = pygame.image.load("flag.png")
+        create_flag(flag_img)
+        move_soldier_ui(field, solider_img)
 
     pygame.display.update()

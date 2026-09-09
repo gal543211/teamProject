@@ -24,6 +24,9 @@ def main():
         if code == consts.EXIT:
             running = False
 
+        if code==5:
+            pygame.time.wait(1000)
+
         if code:
             field = soldier.move_soldier(code, field)
 
