@@ -16,14 +16,14 @@ def screen_dark_color():
     screen.fill(pygame.Color("grey9"))
     pygame.display.update()
 
-# מתודה לציור רנדומלי של שיחים
-def create_bush(bush_img):
-    size=pygame.transform.scale(bush_img, (consts.BUSH_WIDTH, consts.BUSH_HEIGHT))
+# מתודה לציור רנדומלי של שיחים + שמירת מיקומי השיחים
+def create_bush():
+    bushes_lst = []
     for i in range(20):
         x = random.randrange(consts.WINDOW_WIDTH-consts.BUSH_WIDTH)
         y = random.randrange(consts.WINDOW_HEIGHT-consts.BUSH_HEIGHT)
-        screen.blit(size, (x, y))
-        pygame.display.update()
+        bushes_lst.append((x,y))
+    return bushes_lst
 
 # מתודה לציור רשת המטריצה
 def create_lines_net(field):
@@ -72,8 +72,8 @@ def create_flag(flag_png):
 
 # להדפסת מיקום החייל
 def move_soldier_ui(field, soldier_img):
-    row=game_field.get_soldier_tile(field)[0]
-    col=game_field.get_soldier_tile(field)[1]
+    row=game_field.get_soldier_tile(field)[0]*consts.CELL_SIZE
+    col=game_field.get_soldier_tile(field)[1]*consts.CELL_SIZE
     create_player(soldier_img, row, col)
     pygame.display.update()
 

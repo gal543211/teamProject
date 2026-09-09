@@ -11,9 +11,14 @@ def main():
     field = game_field.create_field()
     screen.screen_green_color()
     bush_img = pygame.image.load("bush.png")
-    screen.create_bush(bush_img)
-    bush_img = pygame.image.load("bush.png")
-    screen.create_bush(bush_img)
+    bushes_lst = []
+    bushes_lst=screen.create_bush()
+
+    #TODO: להדפיס את השיחים
+    size = pygame.transform.scale(bush_img,(consts.BUSH_WIDTH, consts.BUSH_HEIGHT))
+    for:
+        screen.blit(size, (x, y))
+        pygame.display.update()
 
     # בדיקה של מצב2
     # screen.screen_dark_color()
