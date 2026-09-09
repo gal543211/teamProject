@@ -3,7 +3,9 @@ import consts
 
 field = game_field.create_field()
 game_field.print_field(field)
-print(game_field.return_mines_location(field))
+list_of_mines = game_field.return_mines_location(field)
+print(f"Actual amount of mines: {len(list_of_mines)}")
+print(list_of_mines)
 
 #Function to move the player in the matrix
 #The functions gets a code, the code is one of these:
@@ -60,7 +62,7 @@ def move_soldier(code):
     return True
 
 
-#function that checks is the soldier is touching the flag
+#function that checks if the soldier is touching the flag
 def is_soldier_touching_flag():
     soldier_row, soldier_col = game_field.get_soldier_tile(field)
     for row in range(soldier_row, soldier_row + consts.SOLDIER_ROWS):
@@ -72,8 +74,21 @@ def is_soldier_touching_flag():
 #function the checks if the soldier is touching a mine
 def is_soldier_touching_mine():
     soldier_row, soldier_col = game_field.get_soldier_tile(field)
-    for row in range(soldier_row, soldier_row + consts.SOLDIER_ROWS):
-        for col in range(soldier_col, soldier_col + consts.SOLDIER_COLS):
-            if field[row][col] == consts.MINES_TILE:
-                return True
+    left_foot, right_foot = get_soldier_two_foots(soldier_row, soldier_col)
+    print(left_foot, right_foot)
+
+    left_row, left_col = left_foot
+    if field[left_row][left_col] == consts.MINES_TILE:
+        return True
+
+    right_row, right_col = right_foot
+    if field[right_row][right_col] == consts.MINES_TILE:
+        return True
+
     return False
+
+def get_soldier_two_foots(soldier_row, soldier_col):
+    return (soldier_row + 3, soldier_col), (soldier_row + 3 , soldier_col + 1)
+
+
+print(is_soldier_touching_mine())

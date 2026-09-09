@@ -10,7 +10,7 @@ WINDOW_WIDTH = BOARD_COLS * CELL_SIZE
 WINDOW_HEIGHT = BOARD_ROWS * CELL_SIZE
 
 
-EMPTY_TILE = "E"
+EMPTY_TILE = " "
 
 #flag location in the field
 FLAG_TILE = "F"
