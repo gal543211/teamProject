@@ -33,6 +33,15 @@ def main():
         if code:
             field = soldier.move_soldier(code, field)
 
+        print(f"The soldier is at: {game_field.get_soldier_tile(field)}")
+        if soldier.is_soldier_touching_mine(field):
+            print("You lost")
+            running = False
+
+        if soldier.is_soldier_touching_flag(field):
+            print("You won")
+            running = False
+
         #screen.print_screen(field)
 
 def handle_events():
