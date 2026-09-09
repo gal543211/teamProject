@@ -28,7 +28,7 @@ def create_lines_net(field):
 
 # מתודה לציור המוקשים
 def mines_field_ui(field, mine_png):
-    mine=pygame.transform.scale(mine_png, (consts.CELL_SIZE * consts.SOLDIER_BODY_ROWS, consts.CELL_SIZE * consts.SOLDIER_BODY_ROWS))
+    mine=pygame.transform.scale(mine_png, (consts.CELL_SIZE * consts.SOLDIER_BODY_ROWS, consts.CELL_SIZE))
     for row in range(len(field)-1):
         for col in range(len(field[row])-1):
             if field[row][col+1] == consts.MINES_TILE:
