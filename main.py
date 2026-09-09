@@ -20,6 +20,7 @@ def main():
     # screen.mines_field_ui(field, mine_img)
 
     # יצירת שחקן בתחילת הלוח:
+
     day_solider_img = pygame.image.load("soldier.png")
     screen.create_player(day_solider_img)
 
