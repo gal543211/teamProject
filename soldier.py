@@ -52,6 +52,7 @@ def move_soldier(code):
             return False
 
         #if the tile we are moving the soldier into is a mine or a flag, we don't move him
+        print(field)
         if field[soldier_row + 1][soldier_col] != consts.MINES_TILE \
             or field[soldier_row + 1][soldier_col] != consts.FLAG_TILE:
             field[soldier_row][soldier_col] = consts.EMPTY_TILE

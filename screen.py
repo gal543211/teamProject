@@ -14,6 +14,7 @@ def screen_green_color():
     screen.fill(pygame.Color("darkolivegreen1"))
     pygame.display.update()
 
+
 # מתודה לציור רקע כהה
 def screen_dark_color():
     screen.fill(pygame.Color("grey9"))
