@@ -5,21 +5,11 @@ import game_field
 import soldier
 
 def main():
-
     pygame.init()
     running = True
     field = game_field.create_field()
     screen.screen_green_color()
-    bush_img = pygame.image.load("bush.png")
-    bushes_lst = []
-    bushes_lst=screen.create_bush()
-
-    #TODO: להדפיס את השיחים
-    size = pygame.transform.scale(bush_img,(consts.BUSH_WIDTH, consts.BUSH_HEIGHT))
-    for:
-        screen.blit(size, (x, y))
-        pygame.display.update()
-
+    bushes_lst = screen.create_bush()
     # בדיקה של מצב2
     # screen.screen_dark_color()
     # screen.create_lines_net(field)
@@ -30,14 +20,12 @@ def main():
     day_solider_img = pygame.image.load("soldier.png")
     screen.create_player(day_solider_img,0,0)
 
-    # יצירת דגל בסוף הלוח
-    flag_img = pygame.image.load("flag.png")
-    screen.create_flag(flag_img)
-
     while running:
         code = 0
         code = handle_events()
-        screen.move_soldier_ui(field,day_solider_img)
+
+        # הדפסת מצב יום
+        screen.draw_day(bushes_lst, field)
 
         if code == consts.EXIT:
             running = False
