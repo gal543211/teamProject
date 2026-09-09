@@ -1,9 +1,7 @@
 import pygame
 from pygame.surface import Surface
-
 import consts
 import random
-
 import game_field
 
 screen = pygame.display.set_mode(
@@ -49,17 +47,17 @@ def mines_field_ui(field, mine_png):
 
 
 # מתודה לציור החייל בתחילת הלוח
-def create_player(solider_png):
-    solider=pygame.transform.scale(solider_png, (consts.CELL_SIZE * 2, consts.CELL_SIZE * 4))
-    screen.blit(solider, (0, 0))
+def create_player(soldier_png):
+    soldier=pygame.transform.scale(soldier_png, (consts.CELL_SIZE * 2, consts.CELL_SIZE * 4))
+    screen.blit(soldier, (0, 0))
     pygame.display.update()
 
 # מתודה למציאת משבצות חלק תחתון- חייל
-# def top_place(solider_png, field):
+# def top_place(field):
 
 
 # מתודה למציאת משבצות חלק עליון- חייל
-# def bottom_place(solider_png, field):
+# def bottom_place(field):
 
 
 # מתודה לציור הדגל בסוף הלוח
