@@ -46,7 +46,8 @@ def insert_flag(field_with_soldier):
 #The function randomize row and column, then checks if it is possible to place the mine there
 def insert_landmines(empty_field):
     #going 20 times for 20 mines needed
-    for mine in range(consts.MINES_COUNT):
+    mine_count = 0
+    while mine_count < consts.MINES_COUNT:
         row = random.randint(0, consts.BOARD_ROWS - 1) #random row for the mine
         column = random.randint(0, consts.BOARD_COLS - 1) #random col for the min
 
@@ -55,11 +56,11 @@ def insert_landmines(empty_field):
             column = random.randint(0, consts.BOARD_COLS - 1)  # random col for the min
 
         #with functions that I made, checking if it is possible to place the mind
-        if can_put_mines(empty_field, row, column): #because the mine is 3 columns, placing mine on the next 3 columns
+        if can_put_mines(empty_field, row, column):
             empty_field[row][column] = consts.MINES_TILE
-            empty_field[row][column + 1] = consts.MINES_TILE
-            empty_field[row][column + 2] = consts.MINES_TILE
+            mine_count += 1
 
+    print(f"Amount of mines: {mine_count}")
     return empty_field
 
 
@@ -73,12 +74,17 @@ def can_put_mines(field, row, column):
     for checking_col in range(column, column + consts.MINE_COLS):
         if row <= consts.SOLDIER_ROWS and column <= consts.SOLDIER_COLS: #if mine on soldier respawn point
             return False
+
         if checking_col > consts.BOARD_COLS - 1: #if the column is out of range
             return False
+
         #if the mine is already a mine or a flag
-        if field[row][checking_col] == consts.MINES_TILE and field[row][checking_col] == consts.FLAG_TILE \
-                or (column > 0 and field[row][checking_col - 1] == consts.MINES_TILE):
+        if field[row][checking_col] == consts.MINES_TILE or field[row][checking_col] == consts.FLAG_TILE:
+            return False
+
+        if column > 0 and field[row][checking_col - 1] == consts.MINES_TILE:
                 return False
+
     return True
 
 
@@ -90,15 +96,27 @@ def get_soldier_tile(field):
     return None
 
 
-#Function that returns a list of tuple, each tuple has the main location of the mine
+#Function that returns a list of tuple, each tuple has a mine location
+#can be used to view the mines in the screen
 def return_mines_location(field):
     list_of_mines = []
     for row in range(len(field)):
         for col in range(len(field[row])):
             if field[row][col] == consts.MINES_TILE:
-                list_of_mines.append((row, col + 1))
+                list_of_mines.append((row, col))
+
+
     return list_of_mines
 
+
+#Return the amount of mines, mostly for debug
+def return_amount_of_mines(field):
+    count = 0
+    for row in range(len(field)):
+        for col in range(len(field[row])):
+            if field[row][col] == consts.MINES_TILE:
+                count += 1
+    return count
 
 #function to print the field
 #not needed for the game, more for debug
