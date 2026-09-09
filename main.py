@@ -14,6 +14,7 @@ def main():
     screen.create_bush(bush_img)
     bush_img = pygame.image.load("bush.png")
     screen.create_bush(bush_img)
+    print(game_field.return_mines_location(field))
 
     # בדיקה של מצב2
     # screen.screen_dark_color()
@@ -39,6 +40,15 @@ def main():
 
         if code:
             field = soldier.move_soldier(code, field)
+
+        print(f"The soldier is at: {game_field.get_soldier_tile(field)}")
+        if soldier.is_soldier_touching_mine(field):
+            print("You lost")
+            running = False
+
+        if soldier.is_soldier_touching_flag(field):
+            print("You won")
+            running = False
 
         #screen.print_screen(field)
 

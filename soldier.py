@@ -8,13 +8,13 @@ import consts
 def move_soldier(code, field):
     soldier_row, soldier_col = game_field.get_soldier_tile(field)
 
-    print(f"Got code {code}")
     #if the user pressed the left key
     if code == consts.LEFT_KEY:
         if soldier_col == 0: # checking the limits
-            return False
+            return field
 
         print(f"going to {soldier_row},  {soldier_col - 1}")
+
         #if the tile we are moving the soldier into is a mine or a flag, we don't move him
         if field[soldier_row][soldier_col - 1] != consts.MINES_TILE \
             or field[soldier_row][soldier_col - 1] != consts.FLAG_TILE:
@@ -80,10 +80,12 @@ def is_soldier_touching_mine(field):
 
     left_row, left_col = left_foot
     if field[left_row][left_col] == consts.MINES_TILE:
+        print(f"Touched the mine at {left_row}, {left_col}")
         return True
 
     right_row, right_col = right_foot
     if field[right_row][right_col] == consts.MINES_TILE:
+        print(f"Touched the mine at {right_row}, {right_col}")
         return True
 
     return False
