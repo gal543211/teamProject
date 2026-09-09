@@ -2,10 +2,8 @@ import game_field
 import consts
 
 field = game_field.create_field()
-game_field.print_field(field)
 list_of_mines = game_field.return_mines_location(field)
-print(f"Actual amount of mines: {len(list_of_mines)}")
-print(list_of_mines)
+
 
 #Function to move the player in the matrix
 #The functions gets a code, the code is one of these:
@@ -13,11 +11,13 @@ print(list_of_mines)
 def move_soldier(code):
     soldier_row, soldier_col = game_field.get_soldier_tile(field)
 
+    print(f"Got code {code}")
     #if the user pressed the left key
     if code == consts.LEFT_KEY:
         if soldier_col == 0: # checking the limits
             return False
 
+        print(f"going to {soldier_row},  {soldier_col - 1}")
         #if the tile we are moving the soldier into is a mine or a flag, we don't move him
         if field[soldier_row][soldier_col - 1] != consts.MINES_TILE \
             or field[soldier_row][soldier_col - 1] != consts.FLAG_TILE:
@@ -29,6 +29,7 @@ def move_soldier(code):
         if soldier_col >= len(field[soldier_row]):  # checking the limits
             return False
 
+        print(f"going to {soldier_row}, {soldier_col + 1}")
         #if the tile we are moving the soldier into is a mine or a flag, we don't move him
         if field[soldier_row][soldier_col + 1] != consts.MINES_TILE \
             or field[soldier_row][soldier_col + 1] != consts.FLAG_TILE:
@@ -40,6 +41,8 @@ def move_soldier(code):
         if soldier_row <= 0:  # checking the limits
             return False
 
+
+        print(f"going to {soldier_row - 1} {soldier_col}")
         #if the tile we are moving the soldier into is a mine or a flag, we don't move him
         if field[soldier_row - 1][soldier_col] != consts.MINES_TILE \
             or field[soldier_row - 1][soldier_col] != consts.FLAG_TILE:
@@ -52,7 +55,7 @@ def move_soldier(code):
             return False
 
         #if the tile we are moving the soldier into is a mine or a flag, we don't move him
-        print(field)
+        print(f"going to {soldier_row + 1} {soldier_col}")
         if field[soldier_row + 1][soldier_col] != consts.MINES_TILE \
             or field[soldier_row + 1][soldier_col] != consts.FLAG_TILE:
             field[soldier_row][soldier_col] = consts.EMPTY_TILE
@@ -76,7 +79,6 @@ def is_soldier_touching_flag():
 def is_soldier_touching_mine():
     soldier_row, soldier_col = game_field.get_soldier_tile(field)
     left_foot, right_foot = get_soldier_two_foots(soldier_row, soldier_col)
-    print(left_foot, right_foot)
 
     left_row, left_col = left_foot
     if field[left_row][left_col] == consts.MINES_TILE:
