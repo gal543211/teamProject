@@ -26,7 +26,7 @@ def main():
 
 
         # הדפסת מצב יום
-        screen.draw_day(bushes_lst, field)
+        screen.draw_day(bushes_lst, field, code)
 
         if code == consts.EXIT:
             running = False
