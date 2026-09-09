@@ -10,10 +10,10 @@ def create_field():
     empty_field = create_empty_field()
 
     #adding the soldier to the field
-    field_with_soldier = insert_soldier(empty_field)
+    empty_field[0][0] = consts.SOLDIER_TILE
 
     #adding the flag to the field
-    field_soldier_flag = insert_flag(field_with_soldier)
+    field_soldier_flag = insert_flag(empty_field)
 
     #filling the field with mines
     full_field = insert_landmines(field_soldier_flag)
@@ -34,13 +34,6 @@ def create_empty_field():
             field[row].append(consts.EMPTY_TILE) #appending empty tiles
     return field
 
-#Function to insert the soldier to the top left location in the field
-def insert_soldier(empty_field):
-    for row in range(consts.SOLDIER_ROWS):
-        for col in range(consts.SOLDIER_COLS):
-            empty_field[row][col] = consts.SOLDIER_TILE
-    return empty_field
-
 #Function to insert the flag to the bottom right location in the field
 def insert_flag(field_with_soldier):
     for row in range(len(field_with_soldier) - consts.FLAG_ROWS, len(field_with_soldier)):
@@ -57,15 +50,18 @@ def insert_landmines(empty_field):
         row = random.randint(0, consts.BOARD_ROWS - 1) #random row for the mine
         column = random.randint(0, consts.BOARD_COLS - 1) #random col for the min
 
+        while not can_put_mines(empty_field, row, column):
+            row = random.randint(0, consts.BOARD_ROWS - 1)  # random row for the mine
+            column = random.randint(0, consts.BOARD_COLS - 1)  # random col for the min
+
         #with functions that I made, checking if it is possible to place the mind
         if can_put_mines(empty_field, row, column): #because the mine is 3 columns, placing mine on the next 3 columns
             empty_field[row][column] = consts.MINES_TILE
             empty_field[row][column + 1] = consts.MINES_TILE
             empty_field[row][column + 2] = consts.MINES_TILE
-        else: #if mine in not possible to add, decreasing 1 in order to have 20 mines
-            mine -= 1
 
     return empty_field
+
 
 #Function to check if it is possible to insert the mine
 #cannot insert mines for 4 options:
@@ -80,10 +76,28 @@ def can_put_mines(field, row, column):
         if checking_col > consts.BOARD_COLS - 1: #if the column is out of range
             return False
         #if the mine is already a mine or a flag
-        if field[row][checking_col] == consts.MINES_TILE and field[row][checking_col] == consts.FLAG_TILE:
-            return False
+        if field[row][checking_col] == consts.MINES_TILE and field[row][checking_col] == consts.FLAG_TILE \
+                or (column > 0 and field[row][checking_col - 1] == consts.MINES_TILE):
+                return False
     return True
 
+
+def get_soldier_tile(field):
+    for row in range(len(field)):
+        for col in range(len(field[row])):
+            if field[row][col] == consts.SOLDIER_TILE:
+                return (row, col)
+    return None
+
+
+#Function that returns a list of tuple, each tuple has the main location of the mine
+def return_mines_location(field):
+    list_of_mines = []
+    for row in range(len(field)):
+        for col in range(len(field[row])):
+            if field[row][col] == consts.MINES_TILE:
+                list_of_mines.append((row, col + 1))
+    return list_of_mines
 
 
 #function to print the field
@@ -93,3 +107,13 @@ def print_field(field):
         for column in range(len(field[row])):
             print(field[row][column], end=" ")
         print()
+
+
+
+#IGNORE
+#Function to insert the soldier to the top left location in the field
+# def insert_soldier(empty_field):
+#     for row in range(consts.SOLDIER_ROWS):
+#         for col in range(consts.SOLDIER_COLS):
+#             empty_field[row][col] = consts.SOLDIER_TILE
+#     return empty_field
