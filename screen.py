@@ -78,4 +78,3 @@ def move_soldier_ui(field, soldier_img):
     pygame.display.update()
 
 # פונקציה לגודל החייל
-
