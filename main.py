@@ -5,6 +5,7 @@ import game_field
 import soldier
 
 def main():
+
     pygame.init()
     running = True
     field = game_field.create_field()
@@ -21,9 +22,8 @@ def main():
     # screen.mines_field_ui(field, mine_img)
 
     # יצירת שחקן בתחילת הלוח:
-
     day_solider_img = pygame.image.load("soldier.png")
-    screen.create_player(day_solider_img)
+    screen.create_player(day_solider_img,0,0)
 
     # יצירת דגל בסוף הלוח
     flag_img = pygame.image.load("flag.png")
@@ -32,6 +32,7 @@ def main():
     while running:
         code = 0
         code = handle_events()
+        screen.move_soldier_ui(field,day_solider_img)
 
         if code == consts.EXIT:
             running = False
