@@ -16,8 +16,8 @@ def main():
     # בדיקה של מצב2
     screen.screen_dark_color()
     screen.create_lines_net(field)
-    bush_img = pygame.image.load("bush.png")
-    screen.mines_field_ui(field, bush_img)
+    mine_img = pygame.image.load("mine.png")
+    screen.mines_field_ui(field, mine_img)
 
     while running:
         code = handle_events()
