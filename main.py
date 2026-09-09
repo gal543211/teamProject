@@ -47,16 +47,12 @@ def handle_events():
             return consts.EXIT
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                print(f"Returning: {consts.LEFT_KEY}")
                 return consts.LEFT_KEY
             if event.key == pygame.K_RIGHT:
-                print(f"Returning: {consts.RIGHT_KEY}")
                 return consts.RIGHT_KEY
             if event.key == pygame.K_UP:
-                print(f"Returning: {consts.RIGHT_KEY}")
                 return consts.TOP_KEY
             if event.key == pygame.K_DOWN:
-                print(f"Returning: {consts.BOTTOM_KEY}")
                 return consts.BOTTOM_KEY
 
     return 0
